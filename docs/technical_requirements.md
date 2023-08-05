@@ -27,8 +27,9 @@
     -   Redis
     -   Rest Api
 -   Фронтенд:
-    -   React
+    -   vue.js
     -   JavaScript
+    -   Bootstrap 5
 
 # 4. Требования к дизайну
 
