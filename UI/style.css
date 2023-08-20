@@ -71,11 +71,17 @@ body {
     justify-content: flex-end;
 }
 
+
 .block__phone {
     display: flex;
     width: 40%;
     justify-content: flex-start;
     gap: 3vh;
+}
+
+.phone__logo img {
+    height: 2vh;
+    width: 1vw;
 }
 
 .block_address {
@@ -106,9 +112,31 @@ body {
     gap: 6vh;
 }
 
+.block__search a {
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none; /* Убираем подчеркивание */
+    cursor: pointer;
+}
+
+.block__search a:after {
+    background-color: #000; /* Цвет линии при наведении на нее курсора мыши */
+    display: block;
+    content: "";
+    height: 2px; /* Высота линии */
+    width: 0%;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+}
+
+.block__search a:hover:after,
+.block__search a:focus:after {
+    width: 100%;
+}
+
 .main {
     width: 100%;
-    /* height: 100; */
     display: flex;
     background-color: #fff;
     justify-content: space-between;
