@@ -1,136 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'products/base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="company.css">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:regular,700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400, 700,800&display=swap" rel="stylesheet" />
-    <link rel="shortcut icon" href="favicon.png" type="image/png">
-    <title>Elctronic elder</title>
-</head>
+{% block css %}
+<link rel="stylesheet" href="static/company.css">
+{% endblock  %}
 
-<body>
-    <div class="wrapper">
+{% block main %}
 
-
-        <header class="header">
-            <nav class="menu">
-                <div class="block__phone">
-                    <a href="">8-800 353-3555</a>
-                    <a href="">Заказать звонок</a>
-                </div>
-                <div class="block__address">
-                    <a href="">Москва, Красная площадь, 3, ГУМ</a>
-                </div>
-                <nav class="block_func">
-                    <a href="">Войти</a>
-                    <a href="">Избраное</a>
-                    <a href="">Корзина</a>
-                    <a href="">Поиск</a>
-                    <a href="">Регистрация</a>
-                </nav>
-            </nav>
-
-            <nav class="menu__search">
-                <a href="index.html" class="header__logo">
-                    <img src="favicon.png" href="index.html" alt="">
-                </a>
-                <nav class="block__search">
-                    <a href="">Каталог</a>
-                    <a href="">Акции</a>
-                    <a href="">Как купить?</a>
-                    <a href="">О компании</a>
-                    <a href="">Контакты</a>
-                </nav>
-            </nav>
-        </header>
-        <main class="main">
-            <div class="nav__site">
-                <p>Главная - О компании</p>
-            </div>
-            <div class="main__block">
-
-                <div class="main__text">
-                    <p class="title">О Компании</p>
-                    <p class="text">Beoplay Store — онлайн-витрина фирменного магазина Bang & Olufsen в ГУМе. </p>
-                    <p class="text">Мы являемся авторизованным дилером Bang & Olufsen в России.</p>
-                    <p class="text">Мы продаем только официально поставляемую в Россию технику Bang & Olufsen и никогда
-                        не продаем подделки, а также «серую» — неофициально поставленную в Россию технику. Заказывая
-                        товар на Beoplay Store, вы можете быть уверены в качестве приобретаемой продукции!</p>
-
-                    <p class="title">Наши преимущества</p>
-                    <p class="text">Каталог актуальной техники Bang & Olufsen Beoplay в наличии на складе. Перейти в
-                        каталог</p>
-                    <p class="text">Только «белая» техника с полной гарантией. Мы являемся официальным дилером B&O.
-                        Подробнее о гарантии</p>
-                    <p class="text"> Наличие товара и возможность демонстрации в фирменном магазине в ГУМе. В фирменном
-                        магазине Bang & Olufsen в ГУМе всегда можно лично убедиться в качестве товаров и увидеть технику
-                        в работе, а также забрать и приобрести товар в ГУМе. В наличии портативная аудиотехника Beoplay,
-                        домашние аудиосистемы Beosound и Beoplay телевизоры Beovision. Подробнее о Салоне</p>
-                    <p class="text"> Удобная оперативная доставка по России. Подробнее о доставке</p>
-                    <p class="text"> Различные способы оплаты. Доступна рассрочка на выбор. Об оплате</p>
-                    <p class="text"> Спроектируем и установим систему домашнего кинотеатра Bang & Olufsen, поможем
-                        создать мультирум, создадим и реализуем проект озвучивания помещения.</p>
-                    <p class="text"> Грамотные специалисты, имеющие большой опыт работы не только с брендом B&O, но и с
-                        другой аудио-, видеотехникой класса Hi-Fi и High End. Наши менеджеры не просто продавцы, они
-                        отлично разбираются в представленном ассортименте, регулярно проходят обучение по продукции,
-                        знают о всех возможностях техники и смогут помочь вам с выбором.</p>
-                    
-                </div>
-                <nav class="navigation__page">
-                    <a>О компании</a>
-                    <a>Салон в ГУМе</a>
-                    <a>Контакты</a>
-                </nav>
-            </div>
-        </main>
-
-        <footer class="footer">
-            <div class="info__footer">
-                <div class="foot">
-                    <a href="">О компании</a>
-                </div>
-                <a href="">Салон в ГУМе</a>
-                <a href="">Контакты</a>
-            </div>
-            <div class="info__footer">
-                <div class="foot">
-                    <a href="">Информация</a>
-                </div>
-                <a href="">Как купить?</a>
-                <a href="">Об оплате</a>
-                <a href="">О доставке</a>
-                <a href="">О гарантии</a>
-                <a href="">Возврат и обмен</a>
-            </div>
-
-            <div class="info__footer">
-                <div class="foot">
-                    <a href="">Electronic elder</a>
-                </div>
-                <a href="">Блог</a>
-                <a href="">Компания Electronic elder</a>
-                <a href="">Сервис</a>
-            </div>
-
-            <div class="info__footer">
-                <div class="foot">
-                    <a href="">Наши контакты</a>
-                </div>
-                <a href="">8-000 800-8000</a>
-                <a href="">iebk17@gmail.com</a>
-                <a href="">Москва, Красная
-                    площадь, 3, ГУМ</a>
-            </div>
-            <div class="block__footer">
-
-                <a href="" class="logo__card"></a>
-            </div>
-        </footer>
+<main class="main">
+    <div class="nav__site">
+        <p>Главная - О компании</p>
     </div>
+    <div class="main__block">
 
-</body>
+        <div class="main__text">
+            <p class="title">О Компании</p>
+            <p class="text">Beoplay Store — онлайн-витрина фирменного магазина Bang & Olufsen в ГУМе. </p>
+            <p class="text">Мы являемся авторизованным дилером Bang & Olufsen в России.</p>
+            <p class="text">Мы продаем только официально поставляемую в Россию технику Bang & Olufsen и никогда
+                не продаем подделки, а также «серую» — неофициально поставленную в Россию технику. Заказывая
+                товар на Beoplay Store, вы можете быть уверены в качестве приобретаемой продукции!</p>
 
-</html>
+            <p class="title">Наши преимущества</p>
+            <p class="text">Каталог актуальной техники Bang & Olufsen Beoplay в наличии на складе. Перейти в
+                каталог</p>
+            <p class="text">Только «белая» техника с полной гарантией. Мы являемся официальным дилером B&O.
+                Подробнее о гарантии</p>
+            <p class="text"> Наличие товара и возможность демонстрации в фирменном магазине в ГУМе. В фирменном
+                магазине Bang & Olufsen в ГУМе всегда можно лично убедиться в качестве товаров и увидеть технику
+                в работе, а также забрать и приобрести товар в ГУМе. В наличии портативная аудиотехника Beoplay,
+                домашние аудиосистемы Beosound и Beoplay телевизоры Beovision. Подробнее о Салоне</p>
+            <p class="text"> Удобная оперативная доставка по России. Подробнее о доставке</p>
+            <p class="text"> Различные способы оплаты. Доступна рассрочка на выбор. Об оплате</p>
+            <p class="text"> Спроектируем и установим систему домашнего кинотеатра Bang & Olufsen, поможем
+                создать мультирум, создадим и реализуем проект озвучивания помещения.</p>
+            <p class="text"> Грамотные специалисты, имеющие большой опыт работы не только с брендом B&O, но и с
+                другой аудио-, видеотехникой класса Hi-Fi и High End. Наши менеджеры не просто продавцы, они
+                отлично разбираются в представленном ассортименте, регулярно проходят обучение по продукции,
+                знают о всех возможностях техники и смогут помочь вам с выбором.</p>
+
+        </div>
+        <nav class="navigation__page">
+            <a>О компании</a>
+            <a>Салон в ГУМе</a>
+            <a>Контакты</a>
+        </nav>
+    </div>
+</main>
+
+{% endblock  %}
