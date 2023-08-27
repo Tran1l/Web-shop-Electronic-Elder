@@ -1,0 +1,37 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="catalog.css">
+{% endblock  %}
+
+{% block main %}
+
+<main class="main">
+  <div class="nav__site">
+    <p>Главная - Каталог</p>
+  </div>
+  <div class="nav__title">
+    <p class="title">Каталог</p>
+  </div>
+  <nav class="block__choose_items">
+    <div class="left_table">
+      <div class="block__item">
+        <a href="#" class="title">Рюкзаки</a>
+      </div>
+      <div class="block__item">
+
+        <a href="#" class="title">Наушники</a>
+      </div>
+    </div>
+    <div class="right_table">
+      <div class="block__item">
+        <a href="catalog_thinkpad.html" class="title">Thinkpads</a>
+      </div>
+      <div class="block__item">
+        <a href="#" class="title">Подарки</a>
+      </div>
+
+    </div>
+  </nav>
+</main>
