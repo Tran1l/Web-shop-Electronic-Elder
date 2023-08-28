@@ -1,4 +1,4 @@
-version: '2.0'
+version: '2.1'
 
 services:
   s3:
@@ -25,6 +25,18 @@ services:
       - .env
     depends_on:
       - s3
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - static_volume:/usr/src/app/static
+      - media_volume:/usr/src/app/media
+    depends_on:
+      - web
+      - s3
+
 volumes:
   postgres_data:
   static_volume:
