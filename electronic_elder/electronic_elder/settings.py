@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
+from minio import Minio
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-!d)0+467td!=!hpu7zw0ilt6%1q^tcgz-j61nj%2d%5bwwx-63
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS').split(' ')
 
 
 # Application definition
@@ -114,15 +115,45 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS= [
-    BASE_DIR / 'static',
-]
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
+#minio db
+MINIO_STORAGE_ACCESS_KEY = os.environ.get('MINIO_ACCESS_KEY')
+MINIO_STORAGE_SECRET_KEY = os.environ.get('MINIO_SECRET_KEY')
+MINIO_STORAGE_BUCKET_NAME = os.environ.get('BUCKET_NAME')
+MINIO_STORAGE_ENDPOINT = os.environ.get('MINIO_URL')
+MINIO_ROOT_USER = os.environ.get('MINIO_ROOT_USER')
+MINIO_ROOT_PASSWORD = os.environ.get('MINIO_ROOT_PASSWORD')
+
+MINIO_PUBLIC_BUCKETS = ['media']
+
+MINIO_STORAGE_MEDIA_OBJECT_METADATA = {
+    'CacheControl': 'max-age=86400',
+}
+
+AWS_ACCESS_KEY_ID = MINIO_ROOT_USER
+AWS_SECRET_ACCESS_KEY = MINIO_ROOT_PASSWORD
+AWS_STORAGE_BUCKET_NAME = MINIO_STORAGE_BUCKET_NAME
+AWS_S3_ENDPOINT_URL = MINIO_STORAGE_ENDPOINT
+AWS_DEFAULT_ACL = None
+AWS_QUERYSTRING_AUTH = True
+AWS_S3_FILE_OVERWRITE = False
+
+MINIO_STORAGE_MEDIA_URL = 'media'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+client = Minio(
+    os.environ.get('MINIO_DOMAIN'),
+    access_key=MINIO_ROOT_USER,
+    secret_key=MINIO_ROOT_PASSWORD,
+    secure=os.environ.get('MINIO_SECURE') == True,
+)
+
+found = client.bucket_exists(MINIO_STORAGE_BUCKET_NAME)
+if not found: client.make_bucket(MINIO_STORAGE_BUCKET_NAME)
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
