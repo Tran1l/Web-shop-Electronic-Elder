@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="catalog_thinkpad.css">
+<link rel="stylesheet" type="text/css" href="{%static 'catalog_thinkpad.css'%}">
 {% endblock  %}
 
 {% block main %}
@@ -16,37 +16,14 @@
         <p class="title">Thinkpads</p>
     </div>
     <div class="block__catalog">
+        {% for product in products %}
         <div class="block__item">
-            <img src="thinkpad.jpeg" alt="">
-            <a href="" class="title">LENOVO THINKPAD T480S. CORE i5-8250U 1.6-3.4 ГГц, 14", FULL HD IPS</a>
+            <img src="data:image/png;base64,{{ photo.cleaned_img }}" alt="">
+            <a href="" class="title">{{ product.name }} </a>
             <br>
-            <p>29000 р.</p>
+            <p>{{ product.price }} р.</p>
         </div>
-        <div class="block__item">
-            <img src="thinkpad.jpeg" alt="">
-            <a href="" class="title">LENOVO THINKPAD T560. CORE i5-6300U 2.4-3 ГГц, 15.6", FULL HD</a>
-            <br>
-            <p>36000 р.</p>
-        </div>
-        <div class="block__item">
-            <img src="thinkpad.jpeg" alt="">
-            <a href="" class="title">LENOVO THINKPAD T490. 14", CORE i5-8265U 1.6-3.9 ГГц, FULL HD IPS</a>
-            <br>
-            <p>47000 р.</p>
-        </div>
-        <div class="block__item">
-
-            <img src="thinkpad.jpeg" alt="">
-            <a href="" class="title">LENOVO THINKPAD T460. CORE i5-6300U 2.4-3 ГГц, 14", FULL HD IPS</a>
-            <br>
-            <p>90000 р.</p>
-        </div>
-        <div class="block__item">
-            <img src="thinkpad.jpeg" alt="">
-            <a href="" class="title">LENOVO THINKPAD X390. CORE i5-8265U 1.6-3.9 ГГц, 13.3", Full HD IPS</a>
-            <br>
-            <p>20000 р.</p>
-        </div>
+        {% endfor %}
     </div>
 </main>
 {% endblock  %}
