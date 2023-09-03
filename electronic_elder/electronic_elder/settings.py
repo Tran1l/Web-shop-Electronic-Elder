@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from minio import Minio
+import minio
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!d)0+467td!=!hpu7zw0ilt6%1q^tcgz-j61nj%2d%5bwwx-63
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS').split(' ')
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -102,23 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_TZ = True
-
-
-
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
-
 #minio db
 MINIO_STORAGE_ACCESS_KEY = os.environ.get('MINIO_ACCESS_KEY')
 MINIO_STORAGE_SECRET_KEY = os.environ.get('MINIO_SECRET_KEY')
@@ -144,7 +127,7 @@ AWS_S3_FILE_OVERWRITE = False
 MINIO_STORAGE_MEDIA_URL = 'media'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-client = Minio(
+client = minio.Minio(
     os.environ.get('MINIO_DOMAIN'),
     access_key=MINIO_ROOT_USER,
     secret_key=MINIO_ROOT_PASSWORD,
@@ -153,6 +136,24 @@ client = Minio(
 
 found = client.bucket_exists(MINIO_STORAGE_BUCKET_NAME)
 if not found: client.make_bucket(MINIO_STORAGE_BUCKET_NAME)
+
+# Internationalization
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_TZ = True
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

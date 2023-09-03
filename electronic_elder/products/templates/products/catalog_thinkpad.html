@@ -16,14 +16,14 @@
         <p class="title">Thinkpads</p>
     </div>
     <div class="block__catalog">
-        {% for product in products %}
+        {% comment %} {% for product in products %} {% endcomment %}
         <div class="block__item">
-            <img src="data:image/png;base64,{{ photo.cleaned_img }}" alt="">
-            <a href="" class="title">{{ product.name }} </a>
+            <img src="data:image/png;base64,{{ bytes }}" alt="">
+            <a href="" class="title"> dolboeb </a>
             <br>
-            <p>{{ product.price }} р.</p>
+            <p> 90000 р.</p>
         </div>
-        {% endfor %}
+        {% comment %} {% endfor %} {% endcomment %}
     </div>
 </main>
 {% endblock  %}
