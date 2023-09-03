@@ -13,10 +13,8 @@ class Product(models.Model):
     description = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=1)
     quantity = models.PositiveIntegerField(default=0)
-    image = models.ImageField(upload_to='media')
+    image = models.ImageField(upload_to="media")
     category = models.ForeignKey(to=ProductCatagory, on_delete=models.CASCADE)
-    
-    def __str__(self) -> str:
-        return f'Продукт: {self.name} | Категория: {self.category.name}'
-    
 
+    def __str__(self) -> str:
+        return f"Продукт: {self.name} | Категория: {self.category.name}"
