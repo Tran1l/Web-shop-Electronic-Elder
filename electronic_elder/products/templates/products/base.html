@@ -19,7 +19,7 @@
     <header class="header">
       <nav class="menu">
         <div class="block__phone">
-        <a href="index.html" class="phone__logo">
+        <a href="{% url 'index' %}" class="phone__logo">
           <img src="media/call.png" alt="">
         </a>
           <a href="">8-800 353-3555</a>
@@ -41,10 +41,10 @@
           <img src="media/favicon.png" alt="">
         </a>
         <nav class="block__search">
-          <a href="">Каталог</a>
-          <a href="how_buy.html">Как купить?</a>
-          <a href="company.html">О компании</a>
-          <a href="contacts.html">Контакты</a>
+          <a href="{% url 'catalog' %}">Каталог</a>
+          <a href="{% url 'how_buy' %}">Как купить?</a>
+          <a href="{% url 'company' %}">О компании</a>
+          <a href="{% url 'contacts' %}">Контакты</a>
         </nav>
       </nav>
     </header>
